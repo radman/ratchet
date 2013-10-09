@@ -26,14 +26,15 @@
     if (modalToggle && modalToggle.hash) return document.querySelector(modalToggle.hash);
   };
 
-  window.addEventListener('touchend', function (event) {
+  window.addEventListener('click', function (event) {
     var modal = getModal(event);
     if (modal) {
       modal.classList.toggle('active');
       event.preventDefault(); // prevents rewriting url (apps can still use hash values in url)
     }
   });
-}();/* ----------------------------------
+}();
+/* ----------------------------------
  * POPOVER v1.0.0
  * Licensed under The MIT License
  * http://opensource.org/licenses/MIT
@@ -621,6 +622,8 @@
     startTime      = +new Date;
     pageX          = e.touches[0].pageX;
     pageY          = e.touches[0].pageY;
+	deltaX         = 0;
+	deltaY         = 0;
 
     setSlideNumber(0);
 
